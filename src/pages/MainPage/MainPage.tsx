@@ -1,10 +1,10 @@
 import React, { useState, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
-import { ThunkAction } from 'redux-thunk';
+
 import { setAlert } from '../../store/actions/alertAction';
 
 import { getWeather, setLoading } from '../../store/actions/weatherAction';
-import { WeatherAction } from '../../store/types';
+
 
 
 
