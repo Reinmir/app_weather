@@ -26,7 +26,7 @@ export const getWeather = (city: string): ThunkAction<void, RootState, null, Wea
                 type: SET_CITY_NAME,
                 payload: resData.name
             })
-            console.log(resData.name)
+
         } catch (err: any) {
             dispatch({
                 type: SET_ERROR,
