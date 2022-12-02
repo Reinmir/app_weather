@@ -2,15 +2,16 @@ export const GET_WEATHER = 'GET_WEATHER'
 export const SET_ERROR = 'SET_ERROR'
 export const SET_LOADING = 'SET_LOADING'
 export const SET_ALERT = 'SET_ALERT'
+export const SET_CITY_NAME = 'SET_CITY_NAME'
 
-export interface Weather {
+export interface IWeather {
     description: string;
     icon: string;
     id: number;
     main: string;
 }
 
-export interface WeatherData {
+export interface IWeatherData {
     base: string;
     clouds: {
         all: number;
@@ -40,45 +41,51 @@ export interface WeatherData {
     };
     timezone: number;
     visibility: number;
-    weather: Weather[];
+    weather: IWeather[];
     wind: {
         speed: number;
         deg: number;
     };
 }
 
-export interface WeatherError {
+export interface IWeatherError {
     cod: string;
     message: string;
 }
 
-export interface WeatherState {
-    data: WeatherData | null;
+export interface IWeatherState {
+    data: IWeatherData | null;
     loading: boolean;
     error: string;
+    city?: string
 }
 
-interface GetWeatherAction {
+export interface ICityAction {
+    type: typeof SET_CITY_NAME
+    payload: string
+}
+
+interface IGetWeatherAction {
     type: typeof GET_WEATHER;
-    payload: WeatherData;
+    payload: IWeatherData;
 }
 
-interface SetLoadingAction {
+interface ISetLoadingAction {
     type: typeof SET_LOADING;
 }
 
-interface SetErrorAction {
+interface ISetErrorAction {
     type: typeof SET_ERROR;
     payload: string;
 }
 
-export type WeatherAction = GetWeatherAction | SetLoadingAction | SetErrorAction;
+export type WeatherAction = IGetWeatherAction | ISetLoadingAction | ISetErrorAction | ICityAction;
 
-export interface AlertAction {
+export interface IAlertAction {
     type: typeof SET_ALERT;
     payload: string;
 }
 
-export interface AlertState {
+export interface IAlertState {
     message: string;
 }

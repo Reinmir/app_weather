@@ -1,6 +1,6 @@
-import { SET_ALERT, AlertAction } from '../types';
+import { SET_ALERT, IAlertAction } from '../types';
 
-export const setAlert = (message: string): AlertAction => {
+export const setAlert = (message: string): IAlertAction => {
   return {
     type: SET_ALERT,
     payload: message

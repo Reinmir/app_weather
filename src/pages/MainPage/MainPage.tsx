@@ -1,16 +1,19 @@
 import React, { useState, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
+import { ThunkAction } from 'redux-thunk';
 import { setAlert } from '../../store/actions/alertAction';
+
 import { getWeather, setLoading } from '../../store/actions/weatherAction';
+import { WeatherAction } from '../../store/types';
 
 
 
-interface MainPageProps {
+interface IMainPageProps {
   title?: string;
 }
 
-const MainPage: React.FC<MainPageProps> = ({ title }) => {
-  const dispatch = useDispatch();
+const MainPage: React.FC<IMainPageProps> = ({ title }): React.ReactElement => {
+  const dispatch = useDispatch<any>();
   const [city, setCity] = useState('');
 
   const changeHandler = (e: FormEvent<HTMLInputElement>) => {
@@ -20,32 +23,29 @@ const MainPage: React.FC<MainPageProps> = ({ title }) => {
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (city.trim() === '') {
-      return dispatch(setAlert('City is required!'));
+    if(city.trim() === ''){
+      dispatch(setAlert('City name is requiered!'))
+      return
     }
 
     dispatch(setLoading());
-    dispatch<any>(getWeather(city));
+    dispatch(getWeather(city));
     setCity('');
   }
 
   return (
-    <div>
-      <div >
-        <div >
-          <h1 >{title}</h1>
-          <form onSubmit={submitHandler}>
-            <input
-              type="text"
-              placeholder="Enter city name"
-            value={city}
-            onChange={changeHandler}
-            />
-            <button>Search</button>
-          </form>
-        </div>
-      </div>
-    </div>
+    <section>
+      <h1 >{title}</h1>
+      <form onSubmit={submitHandler}>
+        <input
+          type="text"
+          placeholder="Enter city name"
+          value={city}
+          onChange={changeHandler}
+        />
+        <button>Search</button>
+      </form>
+    </section>
   );
 }
 
