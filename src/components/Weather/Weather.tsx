@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-import { IWeatherDailyData, IWeatherData } from "../../store/types";
+import { IWeatherData } from "../../store/types";
+import { IWeatherDailyData } from "../../store/types/dailyWeather";
+
 import { DailyForecast } from "../DailyForecast/DailyForecast";
 
 import "./style.scss";

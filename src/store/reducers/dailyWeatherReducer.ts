@@ -1,12 +1,9 @@
 import {
-  GET_DAILY_WEATHER_SUCCESS,
-  IGetDailyWeatherAction,
-  IWeatherDailyData,
-  IWeatherDailyState,
   SET_ERROR,
   SET_LOADING,
-  WeatherAction,
 } from "../types";
+
+import { DailyWeatherAction, GET_DAILY_WEATHER_SUCCESS, IGetDailyWeatherAction, ISetDailyErrorAction, ISetDailyLoadingAction, IWeatherDailyData, IWeatherDailyState, SET_DAILY_ERROR, SET_DAILY_LOADING } from "../types/dailyWeather";
 
 const initalState: IWeatherDailyState = {
   dailyData: null,
@@ -15,20 +12,21 @@ const initalState: IWeatherDailyState = {
   city: "",
 };
 
-export const dailyWeatherReducer = (state = initalState, action: WeatherAction): IWeatherDailyState => {
+export const dailyWeatherReducer = (state = initalState, action: DailyWeatherAction): IWeatherDailyState => {
   switch (action.type) {
     case GET_DAILY_WEATHER_SUCCESS:
       return {
+        ...state,
         dailyData: action.payload,
         loading: false,
         error: "",
       };
-    case SET_LOADING:
+    case SET_DAILY_LOADING:
       return {
         ...state,
         loading: true,
       };
-    case SET_ERROR:
+    case SET_DAILY_ERROR:
       return {
         ...state,
         error: action.payload,
@@ -42,4 +40,13 @@ export const dailyWeatherReducer = (state = initalState, action: WeatherAction):
 export const getDailyWeatherSuccess = (payload: IWeatherDailyData): IGetDailyWeatherAction => ({
   type: GET_DAILY_WEATHER_SUCCESS,
   payload,
+});
+
+export const getWeatherDailyFail = (payload: string): ISetDailyErrorAction => ({
+  type: SET_DAILY_ERROR,
+  payload,
+});
+
+export const getWeatherDailyPending = (): ISetDailyLoadingAction => ({
+  type: SET_DAILY_LOADING,
 });

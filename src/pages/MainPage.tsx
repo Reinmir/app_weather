@@ -10,6 +10,10 @@ export const MainPage: React.FC = (): React.ReactElement => {
   const weatherData = useSelector((state: RootState) => state.weather.data);
   const dailyWeather = useSelector((state: RootState) => state.dailyWeather.dailyData);
   const loading = useSelector((state: RootState) => state.weather.loading);
+  const dailyLoading = useSelector((state: RootState) => state.dailyWeather.loading)
+  console.log(loading)
+  console.log(dailyLoading)
 
-  return <>{loading ? <Loader /> : weatherData && <Weather data={weatherData} dailyData={dailyWeather} />}</>;
+
+  return <>{loading || dailyLoading ? <Loader /> : weatherData && dailyWeather && <Weather data={weatherData} dailyData={dailyWeather} />}</>;
 };
