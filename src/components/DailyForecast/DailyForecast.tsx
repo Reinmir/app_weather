@@ -25,10 +25,7 @@ export const DailyForecast: React.FC<IWeatherDailyProps> = ({
 
   return (
     <section className="daily__container">
-
-            {dailyData.list.map((item) =>
-          <div className="daily__blocks">{days[new Date(item.dt * 1000).getDay()]}</div>}
-              
+      <div className="daily__blocks"></div>
     </section>
   );
 };

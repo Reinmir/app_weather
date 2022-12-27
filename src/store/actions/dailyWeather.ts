@@ -5,9 +5,9 @@ import { RootState } from "..";
 import { getDailyWeatherForecast } from "../thunk/getDailyWeatherForecast";
 
 import {
-  getDailyWeatherSuccess,
   getWeatherDailyFail,
   getWeatherDailyPending,
+  getWeatherDailySuccess,
 } from "../reducers/dailyWeatherReducer";
 
 import { DailyWeatherAction, SET_DAILY_CITY_NAME } from "../types/dailyWeather";
@@ -19,7 +19,7 @@ export const getDailyWeather = (
     try {
       dispatch(getWeatherDailyPending());
       const res = await getDailyWeatherForecast(city);
-      dispatch(getDailyWeatherSuccess(res));
+      dispatch(getWeatherDailySuccess(res));
       dispatch({
         type: SET_DAILY_CITY_NAME,
         payload: res.name,
