@@ -1,17 +1,18 @@
-import { applyMiddleware, createStore, combineReducers } from 'redux'
-import thunk from 'redux-thunk'
+import { applyMiddleware, createStore, combineReducers } from "redux";
+import thunk from "redux-thunk";
 
-import alertReducer from './reducers/alertReducer'
-import { weatherReducer } from './reducers/weatherReducer'
+import alertReducer from "./reducers/alertReducer";
+import { dailyWeatherReducer } from "./reducers/dailyWeatherReducer";
+import { weatherReducer } from "./reducers/weatherReducer";
 
 const rootReducer = combineReducers({
-    weather: weatherReducer,
-    alert: alertReducer
-})
+  weather: weatherReducer,
+  dailyWeather: dailyWeatherReducer,
+  alert: alertReducer,
+});
 
-
-const store = createStore(rootReducer, applyMiddleware(thunk))
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export type RootState = ReturnType<typeof rootReducer>;
 
-export default store
+export default store;

@@ -1,17 +1,16 @@
 import { IAlertState, IAlertAction, SET_ALERT } from "../types";
 
-
 const initialState: IAlertState = {
-    message: ''
-}
+  message: "",
+};
 
 export default (state = initialState, action: IAlertAction): IAlertState => {
-    switch (action.type) {
-        case SET_ALERT:
-            return {
-                message: action.payload
-            }
-        default:
-            return state;
-    }
-}
+  switch (action.type) {
+    case SET_ALERT:
+      return {
+        message: action.payload,
+      };
+    default:
+      return state;
+  }
+};
