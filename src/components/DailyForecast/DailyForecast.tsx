@@ -15,21 +15,11 @@ export const DailyForecast: React.FC<IWeatherDailyProps> = ({ dailyData }): Reac
 
   return (
     <section className="daily__container">
-      <div className="daily__blocks">
-        {dailyData.name} {dailyData.main.temp.toFixed(0)} {dayName}
-      </div>
-      <div className="daily__blocks">
-        {dailyData.name} {dailyData.main.temp.toFixed(0)} {dayName}
-      </div>
-      <div className="daily__blocks">
-        {dailyData.name} {dailyData.main.temp.toFixed(0)} {dayName}
-      </div>
-      <div className="daily__blocks">
-        {dailyData.name} {dailyData.main.temp.toFixed(0)} {dayName}
-      </div>
-      <div className="daily__blocks">
-        {dailyData.name} {dailyData.main.temp.toFixed(0)} {dayName}
-      </div>
+      <div className="daily__blocks">{dailyData.name}</div>
+      <div className="daily__blocks"></div>
+      <div className="daily__blocks"></div>
+      <div className="daily__blocks"></div>
+      <div className="daily__blocks"></div>
     </section>
   );
 };

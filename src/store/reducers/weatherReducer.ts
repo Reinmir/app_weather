@@ -11,9 +11,7 @@ import {
   ISetLoadingAction,
   ISetErrorAction,
   IGetWeatherAction,
-  GET_DAILY_WEATHER_SUCCESS,
-  IWeatherDailyData,
-  IGetDailyWeatherAction,
+
 } from "../types";
 
 const initalState: IWeatherState = {
