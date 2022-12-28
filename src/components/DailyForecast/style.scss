@@ -13,6 +13,32 @@
     background-color: #555;
     margin-top: 50px;
   }
-  &__blocks {
+  &__item {
+    background-color: lightcoral;
+    border-radius: 15px;
+    min-height: 40px;
+    margin: 5px;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    font-size: 14px;
+    .day {
+      color: #212121;
+      font-weight: 600;
+      margin: 5px;
+    }
+    .description {
+      margin: 5px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: white;
+    }
+    .min-max {
+      color: white;
+      font-weight: 500;
+      margin: 5px;
+    }
   }
 }

@@ -16,19 +16,8 @@ export interface IWeatherDailyData {
   city: {
     name: string;
   };
-  main: {
-    temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
-    humidity: number;
-  };
   name: string;
   base: string;
-  clouds: {
-    all: number;
-  };
   cod: number;
   id: number;
   wind: {
@@ -42,11 +31,23 @@ export interface IWeatherDailyData {
     sunset: number;
     type: number;
   };
-  weather: IDailyWeather[];
+
   list: [
     {
       dt: number;
       dt_txt: string;
+      main: {
+        temp: number;
+        feels_like: number;
+        temp_min: number;
+        temp_max: number;
+        pressure: number;
+        humidity: number;
+      };
+      weather: IDailyWeather[];
+      clouds: {
+        all: number;
+      };
     }
   ];
 }
