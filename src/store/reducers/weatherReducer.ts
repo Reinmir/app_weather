@@ -7,10 +7,6 @@ import {
   SET_CITY_NAME,
   REMOVE_CITY_NAME,
   REMOVE_WEATHER,
-  IWeatherData,
-  ISetLoadingAction,
-  ISetErrorAction,
-  IGetWeatherAction,
 } from "../types/currentWeather";
 
 const initalState: IWeatherState = {
@@ -62,19 +58,3 @@ export const weatherReducer = (
       return state;
   }
 };
-
-export const getWeatherSuccess = (
-  payload: IWeatherData
-): IGetWeatherAction => ({
-  type: GET_WEATHER_SUCCESS,
-  payload,
-});
-
-export const getWeatherFail = (payload: string): ISetErrorAction => ({
-  type: SET_ERROR,
-  payload,
-});
-
-export const getWeatherPending = (): ISetLoadingAction => ({
-  type: SET_LOADING,
-});

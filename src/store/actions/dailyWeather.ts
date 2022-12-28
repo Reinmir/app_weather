@@ -4,13 +4,11 @@ import { RootState } from "..";
 
 import { getDailyWeatherForecast } from "../thunk/getDailyWeatherForecast";
 
-import {
-  getWeatherDailyFail,
-  getWeatherDailyPending,
-  getWeatherDailySuccess,
-} from "../reducers/dailyWeatherReducer";
-
 import { DailyWeatherAction, SET_DAILY_CITY_NAME } from "../types/dailyWeather";
+
+import { getWeatherDailyFail } from "./getWeatherDailyFail";
+import { getWeatherDailyPending } from "./getWeatherDailyPending";
+import { getWeatherDailySuccess } from "./getWeatherDailySucces";
 
 export const getDailyWeather = (
   city: string

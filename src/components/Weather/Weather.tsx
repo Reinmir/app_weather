@@ -46,10 +46,15 @@ export const Weather: React.FC<IWeatherProps> = ({
               {Math.round(data.main.temp)}
               <sup>&#8451;</sup>
             </p>
-            <WeatherLayout feels_like={data.main.feels_like} humidity={data.main.humidity} pressure={data.main.pressure} wind_speed={data.wind.speed}/>
+            <WeatherLayout
+              feels_like={data.main.feels_like}
+              humidity={data.main.humidity}
+              pressure={data.main.pressure}
+              wind_speed={data.wind.speed}
+            />
           </div>
         </div>
-        <DailyForecast dailyData={dailyData} />
+      <DailyForecast dailyData={dailyData} />
       </section>
     </>
   );

@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { RootState } from "../../store";
 import { setAlert } from "../../store/actions/alertAction";
+import { getWeatherFail } from "../../store/actions/getCurrentWeatherFail";
 
-import { getWeatherFail } from "../../store/reducers/weatherReducer";
+
 
 import Alert from "../Alert/Alert";
 import { Search } from "../Search/Search";

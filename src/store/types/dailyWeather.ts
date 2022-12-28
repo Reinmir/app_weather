@@ -24,13 +24,7 @@ export interface IWeatherDailyData {
     speed: number;
     deg: number;
   };
-  sys: {
-    country: string;
-    id: number;
-    sunrise: number;
-    sunset: number;
-    type: number;
-  };
+
 
   list: [
     {
@@ -47,6 +41,13 @@ export interface IWeatherDailyData {
       weather: IDailyWeather[];
       clouds: {
         all: number;
+      };
+      sys: {
+        country: string;
+        id: number;
+        sunrise: number;
+        sunset: number;
+        type: number;
       };
     }
   ];

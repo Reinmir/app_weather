@@ -4,13 +4,11 @@ import { RootState } from "..";
 
 import { getCurrentWeatherForecast } from "../thunk/getCurrentWeatherForecast";
 
-import {
-  getWeatherFail,
-  getWeatherPending,
-  getWeatherSuccess,
-} from "../reducers/weatherReducer";
-
 import { WeatherAction, SET_CITY_NAME } from "../types/currentWeather";
+
+import { getWeatherFail } from "./getCurrentWeatherFail";
+import { getWeatherPending } from "./getCurrentWeatherPending";
+import { getWeatherSuccess } from "./getCurrentWeatherSuccess";
 
 export const getCurrentWeather = (
   city: string

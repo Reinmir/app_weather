@@ -19,22 +19,16 @@ export const DailyForecast: React.FC<IWeatherDailyProps> = ({
     "Friday",
     "Saturday",
   ];
-  // let d = new Date(dailyData.list[0].dt* 1000);
-  // let dayName = days[d.getDay()];
-  // console.log(dayName);
-  const res = dailyData.list.map(
-    (item) => days[new Date(item.dt_txt).getDay()]
-  );
+
   const dayInWeek = new Date().getDay();
   const forecastDays = days
     .slice(dayInWeek, days.length)
     .concat(days.slice(0, dayInWeek));
 
-  console.log(dailyData.list[0].main.temp.toFixed(0));
   return (
     <section className="daily__container">
       {dailyData.list.splice(0, 5).map((item, idx) => (
-        <section key={idx}>
+        <section key={item.dt}>
           <div className="daily__item">
             <label className="day">{forecastDays[idx]}</label>
             <img
