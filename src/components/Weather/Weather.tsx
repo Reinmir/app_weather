@@ -8,6 +8,7 @@ import { IWeatherDailyData } from "../../store/types/dailyWeather";
 import { DailyForecast } from "../DailyForecast/DailyForecast";
 
 import "./style.scss";
+import { WeatherLayout } from "./WeatherLayout/WeatherLayout";
 
 interface IWeatherProps {
   data: IWeatherData;
@@ -45,36 +46,7 @@ export const Weather: React.FC<IWeatherProps> = ({
               {Math.round(data.main.temp)}
               <sup>&#8451;</sup>
             </p>
-            <div className="weather__details">
-              <div className="weather__parameter-row">
-                <span className="weather__parameter-label">Details</span>
-              </div>
-              <div className="weather__parameter-row">
-                <span className="weather__parameter-label">Feels like</span>
-                <span className="weather__parameter-value">
-                  {Math.round(data.main.feels_like)}
-                  <sup>&#8451;</sup>
-                </span>
-              </div>
-              <div className="weather__parameter-row">
-                <span className="weather__parameter-label">Wind</span>
-                <span className="weather__parameter-value">
-                  {data.wind.speed} m/s
-                </span>
-              </div>
-              <div className="weather__parameter-row">
-                <span className="weather__parameter-label">Humidity</span>
-                <span className="weather__parameter-value">
-                  {data.main.humidity}%
-                </span>
-              </div>
-              <div className="weather__parameter-row">
-                <span className="weather__parameter-label">Pressure</span>
-                <span className="weather__parameter-value">
-                  {data.main.pressure} hPa
-                </span>
-              </div>
-            </div>
+            <WeatherLayout feels_like={data.main.feels_like} humidity={data.main.humidity} pressure={data.main.pressure} wind_speed={data.wind.speed}/>
           </div>
         </div>
         <DailyForecast dailyData={dailyData} />
