@@ -4,12 +4,17 @@ import { RootState } from "..";
 
 import { getCurrentWeatherForecast } from "../thunk/getCurrentWeatherForecast";
 
-import { getWeatherFail, getWeatherPending, getWeatherSuccess } from "../reducers/weatherReducer";
+import {
+  getWeatherFail,
+  getWeatherPending,
+  getWeatherSuccess,
+} from "../reducers/weatherReducer";
 
-import { WeatherAction, SET_CITY_NAME } from "../types";
+import { WeatherAction, SET_CITY_NAME } from "../types/currentWeather";
 
-
-export const getCurrentWeather = (city: string): ThunkAction<void, RootState, null, WeatherAction> => {
+export const getCurrentWeather = (
+  city: string
+): ThunkAction<void, RootState, null, WeatherAction> => {
   return async (dispatch) => {
     try {
       dispatch(getWeatherPending());

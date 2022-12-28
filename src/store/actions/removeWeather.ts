@@ -1,4 +1,4 @@
-import { IRemoveWeather, REMOVE_WEATHER } from "../types";
+import { IRemoveWeather, REMOVE_WEATHER } from "../types/currentWeather";
 
 export const removeWeather = (): IRemoveWeather => {
   return {

@@ -10,7 +10,11 @@ interface IAlertProps {
   setActive: (active: boolean) => void;
 }
 
-const Alert: React.FC<IAlertProps> = ({ message, onClose, setActive }): React.ReactElement => {
+const Alert: React.FC<IAlertProps> = ({
+  message,
+  onClose,
+  setActive,
+}): React.ReactElement => {
   return (
     <div className="modal" onClick={() => setActive(false)}>
       <div className="modal__content">
