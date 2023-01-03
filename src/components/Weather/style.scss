@@ -6,6 +6,15 @@
   background-color: #555;
   margin: 20px auto 0 auto;
   padding: 0 20px 20px 20px;
+  animation: ani 1.5s forwards;
+  @keyframes ani {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
   &__city {
     font-weight: 600;
     font-size: 18px;
@@ -24,7 +33,7 @@
     line-height: 1;
     margin: 0;
   }
-  
+
   &__section {
     display: flex;
     flex-direction: column;
@@ -34,7 +43,6 @@
     width: 50vw;
     margin: 0 auto;
   }
-  
 }
 
 .top,

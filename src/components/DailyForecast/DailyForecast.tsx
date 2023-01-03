@@ -1,5 +1,6 @@
 import React from "react";
 import { IWeatherDailyData } from "../../store/types/dailyWeather";
+import { Loader } from "../Loader/Loader";
 
 import "./style.scss";
 
@@ -35,9 +36,7 @@ export const DailyForecast: React.FC<IWeatherDailyProps> = ({
               src={`http://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
               alt=""
             />
-            <br />
             <label className="description">{item.weather[0].description}</label>
-            <br />
             <label className="min-max">
               {Math.round(item.main.temp_max)}°C /
               {Math.round(item.main.temp_min)}°C

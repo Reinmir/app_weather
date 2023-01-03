@@ -54,8 +54,9 @@ export const Weather: React.FC<IWeatherProps> = ({
             />
           </div>
         </div>
-      <DailyForecast dailyData={dailyData} />
+        <DailyForecast dailyData={dailyData} />
       </section>
+
     </>
   );
 };
