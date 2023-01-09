@@ -1,12 +1,11 @@
 import { getDailyWeather } from "../../api/openweatherapi/getDailyWeather";
-
-import { IWeatherDailyData, IWeatherError } from "../types";
+import { IDailyWeatherError, IWeatherDailyData } from "../types/dailyWeather";
 
 export const getDailyWeatherForecast = async (city: string): Promise<IWeatherDailyData> => {
   const res = await getDailyWeather(city);
 
   if (!res.ok) {
-    const resData: IWeatherError = await res.json();
+    const resData: IDailyWeatherError = await res.json();
     throw new Error(resData.message);
   }
 

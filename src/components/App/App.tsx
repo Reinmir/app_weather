@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { RootState } from "../../store";
 import { setAlert } from "../../store/actions/alertAction";
-import { resetError } from "../../store/actions/currentWeather";
-import { getWeatherFail, getWeatherPending } from "../../store/reducers/weatherReducer";
+import { getWeatherFail } from "../../store/actions/getCurrentWeatherFail";
 
 import Alert from "../Alert/Alert";
 import { Search } from "../Search/Search";
@@ -20,6 +19,7 @@ const App: React.FC = (): React.ReactElement => {
 
   return (
     <>
+      
       <Search title="Enter city name and press search button" />
       {alertMsg && (
         <Alert

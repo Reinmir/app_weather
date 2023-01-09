@@ -1,4 +1,4 @@
-import { IRemoveCityAction, REMOVE_CITY_NAME } from "../types";
+import { IRemoveCityAction, REMOVE_CITY_NAME } from "../types/currentWeather";
 
 export const removeCity = (): IRemoveCityAction => {
   return {

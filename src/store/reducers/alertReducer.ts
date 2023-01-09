@@ -1,4 +1,4 @@
-import { IAlertState, IAlertAction, SET_ALERT } from "../types";
+import { IAlertState, IAlertAction, SET_ALERT } from "../types/currentWeather";
 
 const initialState: IAlertState = {
   message: "",
