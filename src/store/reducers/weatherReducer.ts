@@ -16,10 +16,7 @@ const initalState: IWeatherState = {
   city: "",
 };
 
-export const weatherReducer = (
-  state = initalState,
-  action: WeatherAction
-): IWeatherState => {
+export const weatherReducer = (state = initalState, action: WeatherAction): IWeatherState => {
   switch (action.type) {
     case GET_WEATHER_SUCCESS:
       return {

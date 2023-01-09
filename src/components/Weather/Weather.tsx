@@ -7,18 +7,16 @@ import { IWeatherDailyData } from "../../store/types/dailyWeather";
 
 import { DailyForecast } from "../DailyForecast/DailyForecast";
 
-import "./style.scss";
 import { WeatherLayout } from "./WeatherLayout/WeatherLayout";
+
+import "./style.scss";
 
 interface IWeatherProps {
   data: IWeatherData;
   dailyData: IWeatherDailyData;
 }
 
-export const Weather: React.FC<IWeatherProps> = ({
-  data,
-  dailyData,
-}): React.ReactElement => {
+export const Weather: React.FC<IWeatherProps> = ({ data, dailyData }): React.ReactElement => {
   const navigate = useNavigate();
 
   return (
@@ -33,13 +31,9 @@ export const Weather: React.FC<IWeatherProps> = ({
               <p className="weather__city">
                 {data.name}, {data.sys.country}
               </p>
-              <p className="weather__description">
-                {data.weather[0].description}
-              </p>
+              <p className="weather__description">{data.weather[0].description}</p>
             </div>
-            <img
-              src={`http://openweathermap.org/img/wn/${data.weather[0].icon}.png`}
-            />
+            <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}.png`} />
           </div>
           <div className="bottom">
             <p className="temperature">
@@ -56,7 +50,6 @@ export const Weather: React.FC<IWeatherProps> = ({
         </div>
         <DailyForecast dailyData={dailyData} />
       </section>
-
     </>
   );
 };

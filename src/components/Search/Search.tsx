@@ -6,7 +6,6 @@ import { FaSearch } from "react-icons/fa";
 import { RootState } from "../../store";
 import { setAlert } from "../../store/actions/alertAction";
 import { getCurrentWeather } from "../../store/actions/currentWeather";
-
 import { getDailyWeather } from "../../store/actions/dailyWeather";
 
 import { Loader } from "../Loader/Loader";
@@ -50,19 +49,21 @@ export const Search: React.FC<ISearchProps> = ({ title }): React.ReactElement =>
   return (
     <>
       <section className="search__container">
-        <h1 className="search__title">{title}</h1>
-        <form className="search__form" onSubmit={submitHandler}>
-          <input
-            type="search"
-            className="search__input"
-            value={city}
-            placeholder="Enter city name"
-            onChange={changeHandler}
-          />
-          <button type="submit" className="search__button">
-            <FaSearch />
-          </button>
-        </form>
+        <div className="form__container">
+          <h1 className="search__title">{title}</h1>
+          <form className="search__form" onSubmit={submitHandler}>
+            <input
+              type="search"
+              className="search__input"
+              value={city}
+              placeholder="Enter city name"
+              onChange={changeHandler}
+            />
+            <button type="submit" className="search__button">
+              <FaSearch />
+            </button>
+          </form>
+        </div>
       </section>
 
       {loading && <Loader />}

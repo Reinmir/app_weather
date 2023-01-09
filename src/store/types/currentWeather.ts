@@ -6,10 +6,6 @@ export const SET_CITY_NAME = "SET_CITY_NAME";
 export const REMOVE_CITY_NAME = "REMOVE_CITY_NAME";
 export const REMOVE_WEATHER = "REMOVE_WEATHER";
 
-
-
-
-
 export interface IWeather {
   description: string;
   icon: string;
@@ -63,7 +59,6 @@ export interface IWeatherState {
   city?: string;
 }
 
-
 export interface ICityAction {
   type: typeof SET_CITY_NAME;
   payload: string;
@@ -96,9 +91,7 @@ export type WeatherAction =
   | ISetErrorAction
   | ICityAction
   | IRemoveWeather
-  | IRemoveCityAction
-
-
+  | IRemoveCityAction;
 
 export interface IAlertAction {
   type: typeof SET_ALERT;

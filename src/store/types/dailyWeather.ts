@@ -25,7 +25,6 @@ export interface IWeatherDailyData {
     deg: number;
   };
 
-
   list: [
     {
       dt: number;

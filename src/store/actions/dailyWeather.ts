@@ -10,9 +10,7 @@ import { getWeatherDailyFail } from "./getWeatherDailyFail";
 import { getWeatherDailyPending } from "./getWeatherDailyPending";
 import { getWeatherDailySuccess } from "./getWeatherDailySucces";
 
-export const getDailyWeather = (
-  city: string
-): ThunkAction<void, RootState, null, DailyWeatherAction> => {
+export const getDailyWeather = (city: string): ThunkAction<void, RootState, null, DailyWeatherAction> => {
   return async (dispatch) => {
     try {
       dispatch(getWeatherDailyPending());

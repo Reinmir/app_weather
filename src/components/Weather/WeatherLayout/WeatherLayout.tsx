@@ -24,7 +24,7 @@ export const WeatherLayout: React.FC<IWeatherLayout> = ({
         <div className="weather__parameter-row">
           <span className="weather__parameter-label">Feels like</span>
           <span className="weather__parameter-value">
-            {feels_like}
+            {Math.round(feels_like)}
             <sup>&#8451;</sup>
           </span>
         </div>
