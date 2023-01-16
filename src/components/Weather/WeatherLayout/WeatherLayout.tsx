@@ -1,5 +1,7 @@
 import React from "react";
 
+import { WeatherRow } from "./WeatherRow";
+
 import "./style.scss";
 
 interface IWeatherLayout {
@@ -18,28 +20,19 @@ export const WeatherLayout: React.FC<IWeatherLayout> = ({
   return (
     <>
       <div className="weather__details">
-        <div className="weather__parameter-row">
-          <span className="weather__parameter-label">Details</span>
-        </div>
-        <div className="weather__parameter-row">
-          <span className="weather__parameter-label">Feels like</span>
-          <span className="weather__parameter-value">
-            {Math.round(feels_like)}
-            <sup>&#8451;</sup>
-          </span>
-        </div>
-        <div className="weather__parameter-row">
-          <span className="weather__parameter-label">Wind</span>
-          <span className="weather__parameter-value">{wind_speed}m/s</span>
-        </div>
-        <div className="weather__parameter-row">
-          <span className="weather__parameter-label">Humidity</span>
-          <span className="weather__parameter-value">{humidity}%</span>
-        </div>
-        <div className="weather__parameter-row">
-          <span className="weather__parameter-label">Pressure</span>
-          <span className="weather__parameter-value">{pressure} hPa</span>
-        </div>
+        <WeatherRow label="Details" />
+        <WeatherRow
+          label="Feels like"
+          value={
+            <>
+              {Math.round(feels_like)}
+              <sup>&#8451;</sup>
+            </>
+          }
+        />
+        <WeatherRow label="Wind" value={`${wind_speed}m/s`} />
+        <WeatherRow label="Humidity" value={<>{humidity}%</>} />
+        <WeatherRow label="Pressure" value={<>{pressure} hPa</>} />
       </div>
     </>
   );

@@ -14,6 +14,10 @@ export interface IWeather {
 }
 
 export interface IWeatherData {
+  coord: {
+    lon: number;
+    lat: number;
+  };
   base: string;
   clouds: {
     all: number;

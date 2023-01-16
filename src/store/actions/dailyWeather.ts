@@ -10,16 +10,12 @@ import { getWeatherDailyFail } from "./getWeatherDailyFail";
 import { getWeatherDailyPending } from "./getWeatherDailyPending";
 import { getWeatherDailySuccess } from "./getWeatherDailySucces";
 
-export const getDailyWeather = (city: string): ThunkAction<void, RootState, null, DailyWeatherAction> => {
+export const getDailyWeather = (lat: number, lon: number): ThunkAction<void, RootState, null, DailyWeatherAction> => {
   return async (dispatch) => {
     try {
       dispatch(getWeatherDailyPending());
-      const res = await getDailyWeatherForecast(city);
+      const res = await getDailyWeatherForecast(lat, lon);
       dispatch(getWeatherDailySuccess(res));
-      dispatch({
-        type: SET_DAILY_CITY_NAME,
-        payload: res.name,
-      });
       return { ok: true };
     } catch (err: any) {
       dispatch(getWeatherDailyFail(err.message));

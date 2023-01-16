@@ -37,7 +37,7 @@ export const Search: React.FC<ISearchProps> = ({ title }): React.ReactElement =>
     }
 
     const res = await dispatch(getCurrentWeather(city));
-    const res1 = await dispatch(getDailyWeather(city));
+    const res1 = await dispatch(getDailyWeather(res.lat, res.lon));
     if (res.ok && res1.ok) {
       setCity("");
       navigate("/weather-forecast");

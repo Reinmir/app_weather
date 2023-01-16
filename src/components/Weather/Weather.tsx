@@ -31,9 +31,12 @@ export const Weather: React.FC<IWeatherProps> = ({ data, dailyData }): React.Rea
               <p className="weather__city">
                 {data.name}, {data.sys.country}
               </p>
+              <p className="weather__description">
+                {new Date(data.dt * 1000).toLocaleDateString("en", { weekday: "long" })}
+              </p>
               <p className="weather__description">{data.weather[0].description}</p>
             </div>
-            <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}.png`} />
+            <img alt="weather_icon" src={`http://openweathermap.org/img/wn/${data.weather[0].icon}.png`} />
           </div>
           <div className="bottom">
             <p className="temperature">
