@@ -6,14 +6,15 @@ import "./style.scss";
 
 interface IWeatherDailyProps {
   dailyData: IWeatherDailyData;
+
 }
 
-export const DailyForecast: React.FC<IWeatherDailyProps> = ({ dailyData }): React.ReactElement => {
+export const DailyForecast: React.FC<IWeatherDailyProps> = ({ dailyData}): React.ReactElement => {
   return (
     <section className="daily__container">
-      {dailyData.daily.slice(1, 6).map((item) => (
+      {dailyData.daily.slice(0, 5).map((item) => (
         <section key={item.dt}>
-          <div className="daily__item">
+          <div className="daily__item" >
             <label className="day">{new Date(item.dt * 1000).toLocaleDateString("en", { weekday: "long" })}</label>
             <img src={`http://openweathermap.org/img/wn/${item.weather[0].icon}.png`} alt="" />
             <label className="description">{item.weather[0].description}</label>

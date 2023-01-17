@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { RootState } from "../../store";
 import { setAlert } from "../../store/actions/alertAction";
-import { setWeatherFail } from "../../store/actions/getCurrentWeatherFail";
+import { setWeatherFail } from "../../store/actions/CurrentWeather/getCurrentWeatherFail";
 
 import Alert from "../Alert/Alert";
 import { Search } from "../Search/Search";

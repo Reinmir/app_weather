@@ -9,6 +9,8 @@ interface IWeatherLayout {
   wind_speed: number;
   humidity: number;
   pressure: number;
+  min: number;
+  max: number;
 }
 
 export const WeatherLayout: React.FC<IWeatherLayout> = ({
@@ -16,6 +18,8 @@ export const WeatherLayout: React.FC<IWeatherLayout> = ({
   humidity,
   pressure,
   wind_speed,
+  max,
+  min,
 }): React.ReactElement => {
   return (
     <>
@@ -31,6 +35,24 @@ export const WeatherLayout: React.FC<IWeatherLayout> = ({
           }
         />
         <WeatherRow label="Wind" value={`${wind_speed}m/s`} />
+        <WeatherRow
+          label="Min"
+          value={
+            <>
+              {Math.round(min)}
+              <sup>&#8451;</sup>{" "}
+            </>
+          }
+        />
+        <WeatherRow
+          label="Max"
+          value={
+            <>
+              {Math.round(max)}
+              <sup>&#8451;</sup>
+            </>
+          }
+        />
         <WeatherRow label="Humidity" value={<>{humidity}%</>} />
         <WeatherRow label="Pressure" value={<>{pressure} hPa</>} />
       </div>

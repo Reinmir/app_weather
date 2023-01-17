@@ -15,8 +15,8 @@ export interface IWeather {
 
 export interface IWeatherData {
   coord: {
-    lon: number;
     lat: number;
+    lon: number;
   };
   base: string;
   clouds: {

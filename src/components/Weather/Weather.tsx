@@ -11,12 +11,16 @@ import { WeatherLayout } from "./WeatherLayout/WeatherLayout";
 
 import "./style.scss";
 
+import { HourlyWeather } from "../HourlyForecast/HourlyForecast";
+import { IWeatherHourlyData } from "../../store/types/hourlyWeather";
+
 interface IWeatherProps {
   data: IWeatherData;
   dailyData: IWeatherDailyData;
+  hourlyData: IWeatherHourlyData;
 }
 
-export const Weather: React.FC<IWeatherProps> = ({ data, dailyData }): React.ReactElement => {
+export const Weather: React.FC<IWeatherProps> = ({ data, dailyData, hourlyData }): React.ReactElement => {
   const navigate = useNavigate();
 
   return (
@@ -44,12 +48,16 @@ export const Weather: React.FC<IWeatherProps> = ({ data, dailyData }): React.Rea
               <sup>&#8451;</sup>
             </p>
             <WeatherLayout
+              min={data.main.temp_min}
+              max={data.main.temp_max}
               feels_like={data.main.feels_like}
               humidity={data.main.humidity}
               pressure={data.main.pressure}
               wind_speed={data.wind.speed}
             />
           </div>
+
+          <HourlyWeather hourlyData={hourlyData} />
         </div>
         <DailyForecast dailyData={dailyData} />
       </section>

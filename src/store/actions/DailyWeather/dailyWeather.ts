@@ -1,12 +1,11 @@
 import { ThunkAction } from "redux-thunk";
 
-import { RootState } from "..";
+import { RootState } from "../..";
 
-import { getDailyWeatherForecast } from "../thunk/getDailyWeatherForecast";
+import { getDailyWeatherForecast } from "../../thunk/getDailyWeatherForecast";
 
-import { DailyWeatherAction, SET_DAILY_CITY_NAME } from "../types/dailyWeather";
-
-import { getWeatherDailyFail } from "./getWeatherDailyFail";
+import { DailyWeatherAction } from "../../types/dailyWeather";
+import { setWeatherDailyFail } from "./getWeatherDailyFail";
 import { getWeatherDailyPending } from "./getWeatherDailyPending";
 import { getWeatherDailySuccess } from "./getWeatherDailySucces";
 
@@ -18,7 +17,7 @@ export const getDailyWeather = (lat: number, lon: number): ThunkAction<void, Roo
       dispatch(getWeatherDailySuccess(res));
       return { ok: true };
     } catch (err: any) {
-      dispatch(getWeatherDailyFail(err.message));
+      dispatch(setWeatherDailyFail(err.message));
       return { ok: false };
     }
   };
@@ -28,5 +27,5 @@ export const setLoading = () => {
   getWeatherDailyPending();
 };
 export const resetError = () => {
-  getWeatherDailyFail("");
+  setWeatherDailyFail("");
 };
