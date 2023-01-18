@@ -1,12 +1,11 @@
-import React from 'react';
+import React from "react";
+import "./style.scss";
+const Loader: React.FC = (): React.ReactElement => {
+  return (
+    <div className="wrapper">
+      <span className="loader"></span>
+    </div>
+  );
+};
 
-import './style.scss'
-
-export const Loader: React.FC = (): React.ReactElement => {
-
-    return (
-        <div className='container'>
-            <div className="loader"></div>
-        </div >
-    )
-}
+export default Loader;

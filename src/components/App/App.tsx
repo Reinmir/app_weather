@@ -1,43 +1,18 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 
-import { RootState } from "../../store";
-import { setAlert } from "../../store/actions/alertAction";
-import { setWeatherFail } from "../../store/actions/getCurrentWeatherFail";
+import Search from "../Search/Search";
 
-import Alert from "../Alert/Alert";
-import { Search } from "../Search/Search";
+import "./style.scss";
 
-import "./App.scss";
-
-const App: React.FC = (): React.ReactElement => {
-  const error = useSelector((state: RootState) => state.weather.error);
-  const alertMsg = useSelector((state: RootState) => state.alert.message);
-  const dispatch = useDispatch();
-
-  const [modalActive, setModalActive] = useState(true);
-
+export const App: React.FC = (): React.ReactElement => {
   return (
-    <>
-      <Search title="Enter city name and press search button" />
-      {alertMsg && (
-        <Alert
-          active={modalActive}
-          setActive={setModalActive}
-          message={alertMsg}
-          onClose={() => dispatch(setAlert(""))}
-        />
-      )}
-      {error && (
-        <Alert
-          active={modalActive}
-          setActive={setModalActive}
-          message={error}
-          onClose={() => dispatch(setWeatherFail(""))}
-        />
-      )}
-    </>
+    <div className="App">
+      <div className="AppGlass">
+        <div className="container">
+          <h1 className="title">Enter city name and press search</h1>
+          <Search />
+        </div>
+      </div>
+    </div>
   );
 };
-
-export default App;
