@@ -1,35 +1,31 @@
 import React from "react";
-import { IWeatherDailyData } from "../../store/types";
+
+import { IWeatherDailyData } from "../../store/types/dailyWeather";
 
 import "./style.scss";
 
 interface IWeatherDailyProps {
   dailyData: IWeatherDailyData;
+
 }
 
-export const DailyForecast: React.FC<IWeatherDailyProps> = ({ dailyData }): React.ReactElement => {
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  let d = new Date(dailyData.dt * 1000);
-  let dayName = days[d.getDay()];
-  console.log(dayName);
-
+export const DailyForecast: React.FC<IWeatherDailyProps> = ({ dailyData}): React.ReactElement => {
   return (
     <section className="daily__container">
-      <div className="daily__blocks">
-        {dailyData.name} {dailyData.main.temp.toFixed(0)} {dayName}
-      </div>
-      <div className="daily__blocks">
-        {dailyData.name} {dailyData.main.temp.toFixed(0)} {dayName}
-      </div>
-      <div className="daily__blocks">
-        {dailyData.name} {dailyData.main.temp.toFixed(0)} {dayName}
-      </div>
-      <div className="daily__blocks">
-        {dailyData.name} {dailyData.main.temp.toFixed(0)} {dayName}
-      </div>
-      <div className="daily__blocks">
-        {dailyData.name} {dailyData.main.temp.toFixed(0)} {dayName}
-      </div>
+      {dailyData.daily.slice(0, 5).map((item) => (
+        <section key={item.dt}>
+          <div className="daily__item" >
+            <label className="day">{new Date(item.dt * 1000).toLocaleDateString("en", { weekday: "long" })}</label>
+            <img src={`http://openweathermap.org/img/wn/${item.weather[0].icon}.png`} alt="" />
+            <label className="description">{item.weather[0].description}</label>
+            <label className="min-max">
+              {Math.round(item.temp.min)}
+              <sup>&#8451;</sup> / {Math.round(item.temp.max)}
+              <sup>&#8451;</sup>
+            </label>
+          </div>
+        </section>
+      ))}
     </section>
   );
 };

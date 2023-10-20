@@ -6,10 +6,10 @@ import { MainPage } from "./pages/MainPage";
 
 const Router: React.FC = () => {
   return (
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/weather-forecast" element={<MainPage />} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/weather-forecast" element={<MainPage />} />
+      </Routes>
   );
 };
 

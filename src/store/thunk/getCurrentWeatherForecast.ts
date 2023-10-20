@@ -1,6 +1,6 @@
 import { getCurrnetWeather } from "../../api/openweatherapi/getCurrentWeather";
 
-import { IWeatherData, IWeatherError } from "../types";
+import { IWeatherData, IWeatherError } from "../types/currentWeather";
 
 export const getCurrentWeatherForecast = async (city: string): Promise<IWeatherData> => {
   const res = await getCurrnetWeather(city);

@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 
 import alertReducer from "./reducers/alertReducer";
 import { dailyWeatherReducer } from "./reducers/dailyWeatherReducer";
-import { weatherReducer } from "./reducers/weatherReducer";
+import { weatherReducer } from "./reducers/currentWeatherReducer";
+import { hourlyWeatherReducer } from "./reducers/hourlyWeatherReducer";
 
 const rootReducer = combineReducers({
   weather: weatherReducer,
   dailyWeather: dailyWeatherReducer,
+  hourlyWeather: hourlyWeatherReducer,
   alert: alertReducer,
 });
 

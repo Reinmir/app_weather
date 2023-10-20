@@ -5,7 +5,6 @@ export const SET_ALERT = "SET_ALERT";
 export const SET_CITY_NAME = "SET_CITY_NAME";
 export const REMOVE_CITY_NAME = "REMOVE_CITY_NAME";
 export const REMOVE_WEATHER = "REMOVE_WEATHER";
-export const GET_DAILY_WEATHER_SUCCESS = "GET_DAILY_WEATHER_SUCCESS";
 
 export interface IWeather {
   description: string;
@@ -15,6 +14,10 @@ export interface IWeather {
 }
 
 export interface IWeatherData {
+  coord: {
+    lat: number;
+    lon: number;
+  };
   base: string;
   clouds: {
     all: number;
@@ -47,40 +50,7 @@ export interface IWeatherData {
   visibility: number;
   weather: IWeather[];
 }
-export interface IWeatherDailyData {
-  main: {
-    temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
-    humidity: number;
-  };
-  name: string;
-  base: string;
-  clouds: {
-    all: number;
-  };
-  cod: number;
-  dt: number;
-  id: number;
-  wind: {
-    speed: number;
-    deg: number;
-  };
-  sys: {
-    country: string;
-    id: number;
-    sunrise: number;
-    sunset: number;
-    type: number;
-  };
-  weather: IWeather[];
-  list: {
-    dt: number;
-    dt_txt: string;
-  };
-}
+
 export interface IWeatherError {
   cod: string;
   message: string;
@@ -93,12 +63,6 @@ export interface IWeatherState {
   city?: string;
 }
 
-export interface IWeatherDailyState {
-  dailyData: IWeatherDailyData | null;
-  loading: boolean;
-  error: string;
-  city?: string;
-}
 export interface ICityAction {
   type: typeof SET_CITY_NAME;
   payload: string;
@@ -116,10 +80,6 @@ export interface IGetWeatherAction {
   payload: IWeatherData;
 }
 
-export interface IGetDailyWeatherAction {
-  type: typeof GET_DAILY_WEATHER_SUCCESS;
-  payload: IWeatherDailyData;
-}
 export interface ISetLoadingAction {
   type: typeof SET_LOADING;
 }
@@ -135,8 +95,7 @@ export type WeatherAction =
   | ISetErrorAction
   | ICityAction
   | IRemoveWeather
-  | IRemoveCityAction
-  | IGetDailyWeatherAction;
+  | IRemoveCityAction;
 
 export interface IAlertAction {
   type: typeof SET_ALERT;
